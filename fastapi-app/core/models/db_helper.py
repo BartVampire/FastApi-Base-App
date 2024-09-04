@@ -47,6 +47,7 @@ class DatabaseHelper:
         async with self.session_factory() as session:  # Создание сессии
             yield session  # Возвращаем сессию в контекстный менеджер
 
+
 db_helper = DatabaseHelper(
     url=str(settings.db.url),  # URL для подключения к базе данных
     echo=settings.db.echo,  # Логирование SQL-запросов в консоль

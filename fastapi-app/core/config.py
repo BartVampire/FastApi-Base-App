@@ -1,5 +1,5 @@
 from pydantic import BaseModel, PostgresDsn
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class RunConfiguration(BaseModel):
@@ -25,10 +25,10 @@ class DatabaseConfig(BaseModel):
     """
 
     url: PostgresDsn
-    echo: bool = False,  # Логирование SQL-запросов в консоль
-    echo_pool: bool = False,  # Выводить логирование пула соединений
-    pool_size: int = 50,  # Размер количества соединений в пуле
-    max_overflow: int = 10, # Количество превышения пула соединений
+    echo: bool = False  # Логирование SQL-запросов в консоль
+    echo_pool: bool = False  # Выводить логирование пула соединений
+    pool_size: int = 50  # Размер количества соединений в пуле
+    max_overflow: int = 10  # Количество превышения пула соединений
 
 
 class Settings(BaseSettings):
@@ -36,6 +36,12 @@ class Settings(BaseSettings):
     Настройки приложения
     """
 
+    model_config = SettingsConfigDict(
+        env_file=".env",  # Имя файла с переменными окружения
+        case_sensitive=False,  # Разрешить любой регистр в именах полей модели
+        env_nested_delimiter="__",  # Разделитель для вложенных переменных окружения
+        env_prefix="FASTAPI__",  # Префикс для переменных окружения
+    )
     run: RunConfiguration = RunConfiguration()  # Конфигурация запуска приложения
     api: ApiPrefix = ApiPrefix()  # Конфигурация префикса для API
     db: DatabaseConfig
