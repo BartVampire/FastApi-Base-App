@@ -1,5 +1,5 @@
 from sqlalchemy import MetaData
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, declared_attr
+from sqlalchemy.orm import DeclarativeBase, declared_attr
 
 from core.config import settings
 from utils import camel_case_to_snake_case
@@ -11,7 +11,6 @@ class BaseModel(DeclarativeBase):
     1) Метод __abstract__ для объявления модели будет считаться абстрактной.
     2) Меняем настройки для создания таблицы: naming_convention.
     3) Преобразуем имя модели в snake_case для создания таблицы и добавляем s в конце имени таблицы.
-    4) Добавляем поле id (Primary Key) с типом int
     """
 
     __abstract__ = True  # Модель не будет создана в базе данных
@@ -23,5 +22,3 @@ class BaseModel(DeclarativeBase):
     @declared_attr.directive
     def __tablename__(cls) -> str:
         return f"{camel_case_to_snake_case(cls.__name__)}s"  # Преобразуем имя модели в snake_case
-
-    id: Mapped[int] = mapped_column(primary_key=True)  # Первичный ключ (Primary Key)
