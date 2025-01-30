@@ -27,9 +27,14 @@ Python-разработчик с опытом создания веб-прило
 ![SQLite](https://img.shields.io/badge/-SQLite-003B57?logo=sqlite&logoColor=white)
 ![Poetry](https://img.shields.io/badge/-Poetry-60A5FA?logo=python&logoColor=white)
 ![Alembic](https://img.shields.io/badge/-Alembic-000000?logo=alembic&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/-SQLAlchemy-29B8DB?logo=sqlalchemy&logoColor=black)
+![Apache Spark](https://img.shields.io/badge/-Apache%20Spark-E25A1C?logo=apachespark&logoColor=white)
+![Pandas](https://img.shields.io/badge/-Pandas-150458?logo=pandas&logoColor=white)
+![Jupyter](https://img.shields.io/badge/-Jupyter-F37626?logo=jupyter&logoColor=white)
 
 ## 🌱 Чем занимаюсь
 - Разработка высоконагруженных API
+- Анализ данных с использованием Pandas и Spark
+- Создание интерактивных ноутбуков в Jupyter
 - Оптимизация и рефакторинг кода
 - Интеграция микросервисной архитектуры
-- Настройка CI/CD и DevOps-инструментов
